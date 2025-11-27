@@ -18,10 +18,9 @@ const About: React.FC = () => {
                className="relative z-10 aspect-[3/4] overflow-hidden bg-brand-charcoal"
              >
                 <div className="absolute inset-0 border border-brand-gold/10 z-20 transition-all duration-700 group-hover:border-brand-gold/30"></div>
-                {/* Placeholder for professional photo - using abstract luxury placeholder if no photo provided */}
-                <img 
-                  src="https://picsum.photos/600/800?grayscale" 
-                  alt="Kristen Leccese" 
+                <img
+                  src="/images/Kristen-Leccese-Amazon-Expert-Consultatnt.png"
+                  alt="Kristen Leccese"
                   className="w-full h-full object-cover opacity-80 mix-blend-luminosity transition-transform duration-1000 group-hover:scale-105"
                 />
              </motion.div>
