@@ -19,7 +19,7 @@ const About: React.FC = () => {
              >
                 <div className="absolute inset-0 border border-brand-gold/10 z-20 transition-all duration-700 group-hover:border-brand-gold/30"></div>
                 <img
-                  src="/images/Kristen-Leccese-Amazon-Expert-Consultatnt.png"
+                  src="/images/Kristen-Leccese-Amazon-Expert-Consultant.png"
                   alt="Kristen Leccese"
                   className="w-full h-full object-cover opacity-80 mix-blend-luminosity transition-transform duration-1000 group-hover:scale-105"
                 />
