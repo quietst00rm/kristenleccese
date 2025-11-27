@@ -13,77 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                black: '#0A0A0A',
-                dark: '#111111',
-                charcoal: '#1A1A1A',
-                gold: '#C9A962',
-                cream: '#FAFAFA',
-                muted: '#9CA3AF',
-                subtle: '#2A2A2A'
-              }
-            },
-            fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['Inter', 'sans-serif'],
-            },
-            backgroundImage: {
-              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        background-color: #0A0A0A;
-        color: #FAFAFA;
-        overflow-x: hidden;
-      }
-      /* Custom scrollbar for Webkit */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0A0A0A;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #C9A962;
-      }
-      .cursor-glow {
-        pointer-events: none;
-        position: fixed;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(201, 169, 98, 0.05) 0%, rgba(0,0,0,0) 70%);
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-        transition: opacity 0.3s ease;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
-  }
-}
-</script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
