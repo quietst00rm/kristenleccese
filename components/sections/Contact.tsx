@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ContactFormData, FormStatus } from '../../types';
-import { Check, Loader2, ArrowRight, ArrowLeft, CornerDownLeft, MessageCircle } from 'lucide-react';
+import { Check, Loader2, ArrowRight, ArrowLeft, CornerDownLeft, MessageCircle, AlertCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -181,9 +181,34 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async () => {
     setStatus(FormStatus.SUBMITTING);
-    // Simulate network request
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setStatus(FormStatus.SUCCESS);
+
+    try {
+      const response = await fetch('https://formspree.io/f/movolpwq', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formDataRef.current.name,
+          email: formDataRef.current.email,
+          company: formDataRef.current.company || 'Not provided',
+          situation: formDataRef.current.situation,
+          source: formDataRef.current.source,
+          sourceDetail: formDataRef.current.sourceDetail || 'N/A'
+        })
+      });
+
+      if (response.ok) {
+        setStatus(FormStatus.SUCCESS);
+      } else {
+        setStatus(FormStatus.ERROR);
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setStatus(FormStatus.ERROR);
+      setError('Network error. Please check your connection and try again.');
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -248,6 +273,36 @@ const Contact: React.FC = () => {
           <p className="text-brand-muted text-lg leading-relaxed mb-8">
             Thank you for reaching out, {formData.name.split(' ')[0]}. I will review your situation and respond as soon as possible.
           </p>
+        </motion.div>
+      </section>
+    );
+  }
+
+  // Error View
+  if (status === FormStatus.ERROR) {
+    return (
+      <section id="contact" className="py-12 md:py-32 bg-brand-dark min-h-[600px] flex items-center justify-center border-t border-brand-charcoal">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="container max-w-lg mx-auto px-6 text-center"
+        >
+          <div className="w-20 h-20 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-8">
+            <AlertCircle className="w-10 h-10 text-red-400" />
+          </div>
+          <h3 className="text-3xl md:text-4xl font-serif text-brand-cream mb-6">Something Went Wrong</h3>
+          <p className="text-brand-muted text-lg leading-relaxed mb-8">
+            {error || 'We couldn\'t send your message. Please try again.'}
+          </p>
+          <button
+            onClick={() => {
+              setStatus(FormStatus.IDLE);
+              setError(null);
+            }}
+            className="bg-brand-gold text-brand-black px-8 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300"
+          >
+            Try Again
+          </button>
         </motion.div>
       </section>
     );
