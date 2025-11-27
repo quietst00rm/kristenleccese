@@ -14,7 +14,7 @@ const Problem: React.FC = () => {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="space-y-8 text-lg md:text-xl text-brand-muted font-light leading-relaxed border-l border-brand-charcoal pl-8 md:pl-12">
+          <div className="space-y-8 text-lg md:text-xl text-brand-muted font-light leading-relaxed border-l-2 border-brand-gold/30 pl-8 md:pl-12">
             <p>
               Human nuance versus automated enforcement. A trillion-dollar algorithm that doesn't understand the context of your business, your inventory, or your intent.
             </p>
