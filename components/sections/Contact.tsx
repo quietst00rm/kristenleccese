@@ -183,7 +183,7 @@ const Contact: React.FC = () => {
     setStatus(FormStatus.SUBMITTING);
 
     try {
-      const response = await fetch('https://formspree.io/f/movolpwq', {
+      const response = await fetch('https://submit-form.com/FlXefxqMW', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
