@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
 
         <div>
           <a 
-            href="https://www.linkedin.com/in/kristenmichelleleccese/" 
+            href="https://www.linkedin.com/in/kristen-leccese/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-brand-muted hover:text-brand-gold transition-colors p-2 block"
